@@ -59,9 +59,17 @@
 
 <script>
   window.addEventListener('keydown', function(event) {
-    const audio = document.querySelector(`audio[data-key="${e.keycode}"]`)
     // console.log(event.keyCode)
-    console.log(audio)
+    const audio = document.querySelector(`audio[data-key="${event.keycode}"]`)
+    const key = document.querySelector(`.key[data-key="${event.keycode}"]`)
+    // console.log(audio)
+    // if there is no audio - return which will make the function to stop running
+    if(!audio) return;
+    // will play the audio sound
+    // will rewind the audio to start so it can play many times
+    audio.currentTime = 0;
+    audio.play();
+    console.log(key)
   });
 
 </script>
